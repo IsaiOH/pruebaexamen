@@ -10,9 +10,7 @@ import org.hibernate.annotations.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Data
+
 
 @Entity
 @Table(name = "store")
@@ -23,6 +21,8 @@ public class Store {
     @Column(name = "id")
     private Integer id;
 
+    @Column(name = "first_name")
+    private String first_name;
 
     @Column(name = "phone_number")
     private String phone_number;
@@ -33,9 +33,18 @@ public class Store {
     @Column(name = "external_id")
     private String external_id;
 
-    @Column(name = "first_name")
-    private String first_name;
 
+
+    public Store(Integer id, String phone_number, String last_name, String external_id, String first_name) {
+        this.id = id;
+        this.phone_number = phone_number;
+        this.last_name = last_name;
+        this.external_id = external_id;
+        this.first_name = first_name;
+    }
+
+    public Store() {
+    }
 
     public void setId(Integer id) {
         this.id = id;

@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 @Table(name = "datos")
-public class datos {
+public class Datos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -13,16 +13,16 @@ public class datos {
 
 
     @Column(name = "phone_number")
-    private String phone_number;
+    private String phoneNumber;
 
     @Column(name = "last_name")
-    private String last_name;
+    private String lastName;
 
     @Column(name = "external_id")
-    private String external_id;
+    private String externalId;
 
     @Column(name = "first_name")
-    private String first_name;
+    private String firstName;
 
 
     public void setId(Integer id) {
@@ -30,19 +30,19 @@ public class datos {
     }
 
     public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+        this.phoneNumber = phone_number;
     }
 
     public void setLast_name(String last_name) {
-        this.last_name = last_name;
+        this.lastName = last_name;
     }
 
     public void setExternal_id(String external_id) {
-        this.external_id = external_id;
+        this.externalId = external_id;
     }
 
     public void setFirst_name(String first_name) {
-        this.first_name = first_name;
+        this.firstName = first_name;
     }
 
     public Integer getId() {
@@ -50,18 +50,18 @@ public class datos {
     }
 
     public String getPhone_number() {
-        return phone_number;
+        return phoneNumber;
     }
 
     public String getLast_name() {
-        return last_name;
+        return lastName;
     }
 
     public String getExternal_id() {
-        return external_id;
+        return externalId;
     }
 
     public String getFirst_name() {
-        return first_name;
+        return firstName;
     }
 }

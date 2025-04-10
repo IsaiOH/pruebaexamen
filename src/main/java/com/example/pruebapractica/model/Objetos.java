@@ -1,13 +1,6 @@
-package com.example.pruebapractica.response;
+package com.example.pruebapractica.model;
 
-import jakarta.persistence.Column;
-
-
-
-
-
-public class Numbers {
-
+public class Objetos {
     private String[] phoneNumbers;
 
     private String lastName;
@@ -16,21 +9,23 @@ public class Numbers {
 
     private String firstName;
 
-    public Numbers(String[] numbers, String last_name, String external_id, String first_name) {
-        this.phoneNumbers = numbers;
+
+    public Objetos() {
+    }
+
+    public Objetos(String[] phone_numbers, String last_name, String external_id, String first_name) {
+        this.phoneNumbers = phone_numbers;
         this.lastName = last_name;
         this.externalId = external_id;
         this.firstName = first_name;
     }
 
-    public Numbers() {
-    }
-    public String[] getNumbers() {
+    public String[] getPhone_numbers() {
         return phoneNumbers;
     }
 
-    public void setNumbers(String[] numbers) {
-        this.phoneNumbers = numbers;
+    public void setPhone_numbers(String[] phone_numbers) {
+        this.phoneNumbers = phone_numbers;
     }
 
     public String getLast_name() {
@@ -56,6 +51,4 @@ public class Numbers {
     public void setFirst_name(String first_name) {
         this.firstName = first_name;
     }
-
-
 }

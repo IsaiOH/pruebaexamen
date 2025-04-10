@@ -1,21 +1,16 @@
 package com.example.pruebapractica.Service.Impl;
 
-import com.example.pruebapractica.Entity.Store;
-import com.example.pruebapractica.Entity.datos;
 import com.example.pruebapractica.Repository.StoreRepository;
 import com.example.pruebapractica.Repository.datosRepository;
-import com.example.pruebapractica.Service.IStore;
+import com.example.pruebapractica.Service.IStoreService;
 import com.example.pruebapractica.response.Numbers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 @Service
-public class ServiceStore implements IStore {
+public class ServiceStore implements IStoreService {
 
     @Autowired
     StoreRepository storeRepository;
@@ -24,17 +19,26 @@ public class ServiceStore implements IStore {
     datosRepository datosRepository;
 
     @Override
-    public List<datos> readAllDa() {
-        return datosRepository.findAll();
+    public List<Numbers> readAllDa() {
+        List<Numbers> lista;
+         lista=datosRepository.findAll().stream().map(dato ->{
+
+             if(dato.getPhone_number() == null){
+                 String[] phones = new String[0];
+                 return new Numbers(phones,dato.getLast_name(),dato.getExternal_id(),dato.getFirst_name());
+             }
+
+             String[] phones = dato.getPhone_number().split(",");
+
+            return new Numbers(phones,dato.getLast_name(),dato.getExternal_id(),dato.getFirst_name());
+
+        }).toList();
+         return lista;
     }
 
-    @Override
-    public List<Store> readAll() {
-        return storeRepository.findAll();
-    }
 
 
-
+/*
     @Override
     public List<Numbers> readAllNumbers() {
         List<Numbers> List=new ArrayList<>();
@@ -57,6 +61,6 @@ public class ServiceStore implements IStore {
         }).toList();
         return List;
     }
-
+*/
 
 }
